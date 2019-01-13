@@ -47,7 +47,7 @@
 
   To work around this, clear the shared volume and try again:
 
-    docker volume rm kerberos-kerb5kdc
+    docker volume rm kerberos-krb5kdc
     docker-compose up
 
   Once the services are up and running they'll be fine - this happens only on first run.
