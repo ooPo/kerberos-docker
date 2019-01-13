@@ -1,0 +1,27 @@
+version: '3'
+services:
+  kadmin:
+    image: oopo/kerberos-kadmin
+    container_name: kerberos-kadmin
+    build:
+      context: ./kadmin
+      args:
+        DOMAIN: DOMAIN.ORG
+        PASSWORD: password
+    volumes:
+      - krb5kdc:/etc/krb5kdc
+    ports:
+      - 749:749
+  kdc:
+    image: oopo/kerberos-kdc
+    container_name: kerberos-kdc
+    build:
+      context: ./kdc
+      args:
+        DOMAIN: DOMAIN.ORG
+    volumes:
+      - krb5kdc:/etc/krb5kdc
+    ports:
+      - 88:88
+volumes:
+  krb5kdc: {}
