@@ -1,17 +1,17 @@
 FROM debian
 MAINTAINER Naomi Peori <naomi@peori.ca>
-ARG DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"]
+
+ARG DEBIAN_FRONTEND="noninteractive"
 
 RUN \
   apt-get update && \
   apt-get install -y apt-utils && \
   mkdir -p /var/log/kerberos
 
-ARG DOMAIN
+ARG DOMAIN="DOMAIN.ORG"
 
-COPY krb5.conf /etc/krb5.conf
-COPY kdc.conf  /etc/krb5kdc/kdc.conf
+COPY source /
 
 RUN \
   sed -i "s/DOMAIN/${DOMAIN}/g" /etc/krb5.conf && \

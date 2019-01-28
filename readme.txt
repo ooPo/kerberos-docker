@@ -14,11 +14,12 @@
     Edit docker-compose.yaml and change the configuration values:
 
       # kadmin
-      DOMAIN: DOMAIN.ORG
-      PASSWORD: password
+      DOMAIN: "DOMAIN.ORG"
+      PASSWORD_MASTER: "password"
+      PASSWORD_KADMIN: "password"
 
       # kdc
-      DOMAIN: DOMAIN.ORG
+      DOMAIN: "DOMAIN.ORG"
 
   Build the services:
 
@@ -34,7 +35,7 @@
 
   Add a new principal:
 
-    docker-compose exec kadmin kadmin.local -q "add_principal username@DOMAIN.ORG"
+   kadmin -r DOMAIN.ORG -p kadmin/admin -q "add_principal username@DOMAIN.ORG"
 
  ================
   Anything else?

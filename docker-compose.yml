@@ -6,8 +6,9 @@ services:
     build:
       context: ./kadmin
       args:
-        DOMAIN: DOMAIN.ORG
-        PASSWORD: password
+        DOMAIN: "DOMAIN.ORG"
+        PASSWORD_MASTER: "password"
+        PASSWORD_KADMIN: "password"
     volumes:
       - krb5kdc:/etc/krb5kdc
     ports:
@@ -18,7 +19,7 @@ services:
     build:
       context: ./kdc
       args:
-        DOMAIN: DOMAIN.ORG
+        DOMAIN: "DOMAIN.ORG"
     volumes:
       - krb5kdc:/etc/krb5kdc
     ports:
