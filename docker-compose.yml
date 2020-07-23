@@ -16,6 +16,8 @@ services:
   kdc:
     image: oopo/kerberos-kdc
     container_name: kerberos-kdc
+    depends_on:
+      - "kadmin"
     build:
       context: ./kdc
       args:
