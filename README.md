@@ -26,7 +26,7 @@ Edit docker-compose.yaml and change the configuration values:
 
 ### Run the services:
 
-    docker-compose up --detach
+    docker-compose up
 
 ### Or, run the services in the background:
 
